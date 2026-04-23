@@ -1,0 +1,15 @@
+<svg width="980" height="500" viewBox="0 0 980 500" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">RC Properties - Fast Cash Offers for Your Home</title>
+  <g transform="translate(40 0)">
+    <path d="M210 214L449 60L693 214H646L449 94L258 214H210Z" fill="#5B9BD5"/>
+    <path d="M286 214L449 112L612 214H565L449 148L333 214H286Z" fill="#0E2F5A"/>
+    <path d="M292 96H335V172L292 199V96Z" fill="#5B9BD5"/>
+    <rect x="283" y="77" width="52" height="15" fill="#5B9BD5"/>
+    <rect x="421" y="166" width="27" height="27" fill="#0E2F5A"/>
+    <rect x="455" y="166" width="27" height="27" fill="#0E2F5A"/>
+    <rect x="421" y="202" width="27" height="27" fill="#0E2F5A"/>
+    <rect x="455" y="202" width="27" height="27" fill="#0E2F5A"/>
+    <text x="450" y="342" fill="#0E2F5A" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="86" font-weight="400" letter-spacing="20">RC PROPERTIES</text>
+    <text x="450" y="424" fill="#5B9BD5" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="400" letter-spacing="9">Fast Cash Offers for Your Home.</text>
+  </g>
+</svg>

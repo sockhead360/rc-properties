@@ -1,0 +1,68 @@
+<svg width="1600" height="720" viewBox="0 0 1600 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title">
+  <title id="title">Suburban home at dusk</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="720" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#163B65"/>
+      <stop offset="0.58" stop-color="#0B2749"/>
+      <stop offset="1" stop-color="#061B35"/>
+    </linearGradient>
+    <linearGradient id="siding" x1="720" y1="182" x2="1344" y2="620" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#D9E0E7"/>
+      <stop offset="1" stop-color="#AEBBC8"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="760" y1="150" x2="1350" y2="370" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#263B55"/>
+      <stop offset="1" stop-color="#10243C"/>
+    </linearGradient>
+    <filter id="softShadow" x="520" y="70" width="930" height="640" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="24" stdDeviation="28" flood-color="#031026" flood-opacity="0.55"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="720" fill="url(#sky)"/>
+  <circle cx="1330" cy="120" r="210" fill="#09213D" opacity="0.76"/>
+  <path d="M0 545C236 502 472 526 720 508C990 488 1240 496 1600 526V720H0V545Z" fill="#0C2719"/>
+  <path d="M0 612C266 574 522 600 762 575C1032 547 1256 548 1600 586V720H0V612Z" fill="#12321F"/>
+
+  <g opacity="0.48">
+    <circle cx="1420" cy="236" r="150" fill="#071C31"/>
+    <circle cx="1510" cy="246" r="120" fill="#061827"/>
+    <circle cx="1360" cy="286" r="115" fill="#08213A"/>
+    <rect x="1420" y="318" width="36" height="270" rx="18" fill="#071827"/>
+  </g>
+
+  <g filter="url(#softShadow)">
+    <path d="M804 331L1018 142L1256 331V626H804V331Z" fill="url(#siding)"/>
+    <path d="M675 372L870 198L1076 372V626H675V372Z" fill="#B7C2CC"/>
+    <path d="M978 332L1150 188L1410 391H1290L1151 284L1038 384L978 332Z" fill="url(#roof)"/>
+    <path d="M630 392L870 178L1112 392H1002L870 282L736 392H630Z" fill="url(#roof)"/>
+
+    <rect x="795" y="424" width="230" height="122" rx="4" fill="#7E8B98"/>
+    <rect x="820" y="449" width="180" height="73" rx="2" fill="#263E59"/>
+    <path d="M824 486H998" stroke="#E3AD3B" stroke-width="6" opacity="0.55"/>
+    <path d="M882 449V522M940 449V522" stroke="#111F32" stroke-width="4" opacity="0.5"/>
+
+    <rect x="1112" y="421" width="135" height="205" fill="#F0F3F5"/>
+    <rect x="1149" y="465" width="61" height="161" rx="2" fill="#5A3E2C"/>
+    <circle cx="1199" cy="548" r="5" fill="#E3AD3B"/>
+    <path d="M1100 421H1260" stroke="#FAFBFC" stroke-width="18"/>
+    <path d="M1096 626H1278" stroke="#FAFBFC" stroke-width="14"/>
+    <path d="M1111 421V626M1248 421V626" stroke="#FAFBFC" stroke-width="16"/>
+
+    <rect x="915" y="310" width="82" height="98" fill="#263E59"/>
+    <rect x="937" y="329" width="38" height="58" fill="#F0CE82"/>
+    <path d="M956 329V387M937 358H975" stroke="#9E783D" stroke-width="3" opacity="0.5"/>
+
+    <rect x="1190" y="317" width="84" height="94" fill="#263E59"/>
+    <rect x="1212" y="336" width="40" height="56" fill="#F0CE82"/>
+    <path d="M1232 336V392M1212 364H1252" stroke="#9E783D" stroke-width="3" opacity="0.5"/>
+
+    <path d="M650 626H1335" stroke="#061A32" stroke-width="20" opacity="0.55"/>
+  </g>
+
+  <ellipse cx="1010" cy="650" rx="430" ry="44" fill="#031026" opacity="0.36"/>
+  <circle cx="1328" cy="505" r="28" fill="#173D24"/>
+  <circle cx="1370" cy="500" r="38" fill="#173D24"/>
+  <circle cx="1292" cy="522" r="31" fill="#1A472B"/>
+  <rect x="1290" y="548" width="115" height="24" rx="12" fill="#1A472B"/>
+</svg>
