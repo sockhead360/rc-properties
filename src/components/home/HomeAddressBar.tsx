@@ -236,7 +236,7 @@ export default function HomeAddressBar() {
       >
         <div className="grid gap-3">
           <div ref={addressBoxRef} className="relative">
-            <label className="grid min-h-[58px] grid-cols-[40px_1fr] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:flex sm:px-4">
+            <label className="flex min-h-[58px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rc-soft-bg">
                 {loadingSuggestions ? (
                   <Loader2

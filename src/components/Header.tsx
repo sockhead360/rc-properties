@@ -22,8 +22,11 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-300 bg-rc-white">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-12">
-        <div className="grid h-[104px] grid-cols-[1fr_auto_1fr] items-center lg:grid-cols-[auto_1fr_auto]">
-          <Link href="/" className="shrink-0 justify-self-center lg:justify-self-start">
+        <div className="relative flex h-[104px] items-center justify-center lg:grid lg:grid-cols-[auto_1fr_auto] lg:justify-normal">
+          <Link
+            href="/"
+            className="absolute left-1/2 shrink-0 -translate-x-1/2 lg:static lg:translate-x-0"
+          >
             <RCLogo />
           </Link>
 
@@ -52,7 +55,7 @@ export default function Header() {
           </nav>
 
           <button
-            className="justify-self-end p-2 text-rc-navy-dark lg:hidden"
+            className="ml-auto p-2 text-rc-navy-dark lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label="Toggle menu"
           >
