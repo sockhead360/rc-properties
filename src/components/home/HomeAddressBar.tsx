@@ -236,8 +236,8 @@ export default function HomeAddressBar() {
       >
         <div className="grid gap-3">
           <div ref={addressBoxRef} className="relative">
-            <label className="flex min-h-[58px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
-              <span className="flex w-[82px] shrink-0 items-center justify-center sm:w-10">
+            <label className="grid min-h-[58px] grid-cols-[88px_1fr] items-center rounded-md border border-gray-200 bg-white px-0 sm:flex sm:gap-3 sm:px-4">
+              <span className="flex shrink-0 items-center justify-center sm:w-10">
                 {loadingSuggestions ? (
                   <Loader2
                     size={26}
@@ -298,7 +298,7 @@ export default function HomeAddressBar() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
+            <label className="grid min-h-[54px] grid-cols-[88px_1fr] items-center rounded-md border border-gray-200 bg-white px-0 sm:flex sm:gap-3 sm:px-4">
             <Phone
               size={22}
               strokeWidth={2.2}
@@ -320,7 +320,7 @@ export default function HomeAddressBar() {
             />
             </label>
 
-            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
+            <label className="grid min-h-[54px] grid-cols-[88px_1fr] items-center rounded-md border border-gray-200 bg-white px-0 sm:flex sm:gap-3 sm:px-4">
             <Mail
               size={22}
               strokeWidth={2.2}
