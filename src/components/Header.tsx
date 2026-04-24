@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import RCLogo from "./RCLogo";
 
 const navLinks = [
@@ -23,6 +23,14 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-300 bg-rc-white">
       <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-12">
         <div className="relative flex h-[104px] items-center justify-center lg:grid lg:grid-cols-[auto_1fr_auto] lg:justify-normal">
+          <a
+            href="tel:4102609157"
+            className="mr-auto p-2 text-rc-navy-dark lg:hidden"
+            aria-label="Call RC Properties"
+          >
+            <Phone size={22} strokeWidth={2.4} />
+          </a>
+
           <Link
             href="/"
             className="absolute left-1/2 shrink-0 -translate-x-1/2 lg:static lg:translate-x-0"
