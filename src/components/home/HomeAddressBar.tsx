@@ -237,17 +237,17 @@ export default function HomeAddressBar() {
         <div className="grid gap-3">
           <div ref={addressBoxRef} className="relative">
             <label className="flex min-h-[58px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
-              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rc-soft-bg">
+              <span className="flex w-[84px] shrink-0 justify-center sm:w-10">
                 {loadingSuggestions ? (
                   <Loader2
-                    size={24}
-                    strokeWidth={2.4}
+                    size={32}
+                    strokeWidth={2.2}
                     className="animate-spin text-rc-light-blue"
                   />
                 ) : (
                   <MapPin
-                    size={26}
-                    strokeWidth={2.4}
+                    size={36}
+                    strokeWidth={2.2}
                     className="text-rc-light-blue"
                   />
                 )}
