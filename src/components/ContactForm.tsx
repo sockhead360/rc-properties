@@ -1,11 +1,20 @@
 "use client";
 
 import { useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+
+function normalizePhone(phone: string) {
+  return phone.replace(/\D/g, "");
+}
+
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
+}
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
   const initialAddress = searchParams.get("address") ?? "";
+  const router = useRouter();
 
   const [form, setForm] = useState({
     name: "",
@@ -14,35 +23,59 @@ export default function ContactForm() {
     address: initialAddress,
     message: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  const formIsValid =
+    form.name.trim().length > 1 &&
+    normalizePhone(form.phone).length === 10 &&
+    isValidEmail(form.email);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
     setForm({ ...form, [e.target.name]: e.target.value });
+    setSubmitError("");
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSubmitted(true);
-  }
+    setSubmitError("");
 
-  if (submitted) {
-    return (
-      <div className="text-center py-12 px-4">
-        <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-bold text-gray-900 mb-2">
-          Message Received!
-        </h3>
-        <p className="text-gray-500 text-sm">
-          Thanks for reaching out. We&apos;ll be in touch within 24 hours.
-        </p>
-      </div>
-    );
+    if (!formIsValid || submitting) {
+      setSubmitError("Enter your name, a valid email, and a 10-digit phone number.");
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name.trim(),
+          phone: normalizePhone(form.phone),
+          phoneDisplay: form.phone.trim(),
+          email: form.email.trim(),
+          address: form.address.trim(),
+          message: form.message.trim(),
+          source: "contact",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Contact submission failed");
+      }
+
+      router.push("/thank-you");
+    } catch {
+      setSubmitError(
+        "We could not submit the form. Please call or text (410) 260-9157."
+      );
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -117,10 +150,16 @@ export default function ContactForm() {
       </div>
       <button
         type="submit"
-        className="w-full bg-gold hover:bg-gold-dark text-white font-semibold py-3.5 rounded-lg transition-colors"
+        disabled={!formIsValid || submitting}
+        className="w-full bg-gold hover:bg-gold-dark disabled:cursor-not-allowed disabled:opacity-55 text-white font-semibold py-3.5 rounded-lg transition-colors"
       >
-        Send Message
+        {submitting ? "Sending..." : "Send Message"}
       </button>
+      {submitError && (
+        <p className="text-center text-sm font-semibold text-red-600">
+          {submitError}
+        </p>
+      )}
     </form>
   );
 }

@@ -210,6 +210,7 @@ export default function HomeAddressBar() {
           email: email.trim(),
           phone: normalizePhone(phone),
           phoneDisplay: phone.trim(),
+          source: "cash-offer",
         }),
       });
 

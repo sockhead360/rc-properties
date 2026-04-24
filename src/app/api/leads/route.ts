@@ -3,10 +3,13 @@ import { NextResponse } from "next/server";
 const LEAD_NOTIFICATION_EMAIL = "christian.nold@gmail.com";
 
 interface LeadPayload {
+  name?: string;
   address?: string;
   email?: string;
+  message?: string;
   phone?: string;
   phoneDisplay?: string;
+  source?: "cash-offer" | "contact";
 }
 
 function normalizePhone(phone: string) {
@@ -18,11 +21,22 @@ function isValidEmail(email: string) {
 }
 
 function isValidLead(payload: LeadPayload) {
+  const name = payload.name?.trim() ?? "";
   const address = payload.address?.trim() ?? "";
   const email = payload.email?.trim() ?? "";
+  const message = payload.message?.trim() ?? "";
   const phone = normalizePhone(payload.phone ?? "");
+  const source = payload.source ?? "cash-offer";
 
-  return address.length > 4 && isValidEmail(email) && phone.length === 10;
+  if (!isValidEmail(email) || phone.length !== 10) {
+    return false;
+  }
+
+  if (source === "cash-offer") {
+    return address.length > 4;
+  }
+
+  return name.length > 1 || address.length > 4 || message.length > 1;
 }
 
 function escapeHtml(value: string) {
@@ -53,13 +67,20 @@ export async function POST(request: Request) {
   const resendApiKey = process.env.RESEND_API_KEY;
   const fromEmail =
     process.env.LEAD_FROM_EMAIL ?? "RC Properties <onboarding@resend.dev>";
-  const address = payload.address!.trim();
+  const address = payload.address?.trim() ?? "";
   const email = payload.email!.trim();
+  const name = payload.name?.trim() ?? "";
+  const message = payload.message?.trim() ?? "";
   const phone = normalizePhone(payload.phone!);
   const phoneDisplay = payload.phoneDisplay?.trim() || phone;
-  const safeAddress = escapeHtml(address);
+  const source = payload.source ?? "cash-offer";
+  const safeName = escapeHtml(name || "Not provided");
+  const safeAddress = escapeHtml(address || "Not provided");
   const safeEmail = escapeHtml(email);
+  const safeMessage = escapeHtml(message || "Not provided");
   const safePhoneDisplay = escapeHtml(phoneDisplay);
+  const sourceLabel =
+    source === "contact" ? "Contact page form" : "Homepage cash offer form";
 
   if (!resendApiKey) {
     console.warn("Lead received but RESEND_API_KEY is not configured", {
@@ -88,22 +109,31 @@ export async function POST(request: Request) {
       from: fromEmail,
       to: [LEAD_NOTIFICATION_EMAIL],
       reply_to: email,
-      subject: "New RC Properties cash offer request",
+      subject:
+        source === "contact"
+          ? "New RC Properties contact form submission"
+          : "New RC Properties cash offer request",
       text: [
         "New RC Properties lead",
         "",
-        `Property address: ${address}`,
+        `Source: ${sourceLabel}`,
+        `Name: ${name || "Not provided"}`,
+        `Property address: ${address || "Not provided"}`,
         `Phone: ${phoneDisplay}`,
         `Email: ${email}`,
+        `Message: ${message || "Not provided"}`,
         "",
         "Follow up ASAP. If the lead does not answer a phone call, send a follow-up text.",
       ].join("\n"),
       html: `
         <div style="font-family: Arial, sans-serif; color: #111827; line-height: 1.5;">
           <h1 style="color: #0E2F5A;">New RC Properties lead</h1>
+          <p><strong>Source:</strong> ${escapeHtml(sourceLabel)}</p>
+          <p><strong>Name:</strong> ${safeName}</p>
           <p><strong>Property address:</strong> ${safeAddress}</p>
           <p><strong>Phone:</strong> ${safePhoneDisplay}</p>
           <p><strong>Email:</strong> ${safeEmail}</p>
+          <p><strong>Message:</strong> ${safeMessage}</p>
           <p>Follow up ASAP. If the lead does not answer a phone call, send a follow-up text.</p>
         </div>
       `,
