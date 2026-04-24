@@ -237,16 +237,16 @@ export default function HomeAddressBar() {
         <div className="grid gap-3">
           <div ref={addressBoxRef} className="relative">
             <label className="flex min-h-[58px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
-              <span className="flex w-[84px] shrink-0 justify-center sm:w-10">
+              <span className="flex w-[82px] shrink-0 items-center justify-center sm:w-10">
                 {loadingSuggestions ? (
                   <Loader2
-                    size={32}
+                    size={26}
                     strokeWidth={2.2}
                     className="animate-spin text-rc-light-blue"
                   />
                 ) : (
                   <MapPin
-                    size={36}
+                    size={30}
                     strokeWidth={2.2}
                     className="text-rc-light-blue"
                   />
@@ -262,7 +262,7 @@ export default function HomeAddressBar() {
                 autoComplete="street-address"
                 placeholder="Enter your property address"
                 required
-                className="w-full bg-transparent text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
+                className="w-full bg-transparent text-left text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
               />
             </label>
 
@@ -316,7 +316,7 @@ export default function HomeAddressBar() {
               autoComplete="tel"
               placeholder="Phone number"
               required
-              className="w-full bg-transparent text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
+              className="w-full bg-transparent text-left text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
             />
             </label>
 
@@ -337,7 +337,7 @@ export default function HomeAddressBar() {
               autoComplete="email"
               placeholder="Email address"
               required
-              className="w-full bg-transparent text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
+              className="w-full bg-transparent text-left text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
             />
             </label>
           </div>

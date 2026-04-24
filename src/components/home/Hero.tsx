@@ -4,7 +4,7 @@ export default function Hero() {
   return (
     <section className="relative isolate min-h-[523px] overflow-hidden bg-rc-navy-dark">
       <div
-        className="absolute inset-0 bg-cover bg-[position:35%_center] sm:bg-center"
+        className="absolute inset-0 bg-cover bg-[position:70%_center] sm:bg-center"
         style={{ backgroundImage: "url('/images/hero-banner.png')" }}
         aria-hidden="true"
       />
