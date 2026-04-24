@@ -9,8 +9,8 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative mx-auto max-w-[1280px] px-8 py-[58px] sm:px-10 lg:px-[76px]">
-        <div className="max-w-[690px]">
+      <div className="relative mx-auto max-w-[1280px] px-5 py-[58px] text-center sm:px-10 lg:px-[76px] lg:text-left">
+        <div className="mx-auto max-w-[690px] lg:mx-0">
           <h1 className="text-[48px] font-extrabold leading-[1.08] tracking-[-0.055em] text-white sm:text-[70px] lg:text-[78px]">
             Sell Your House
             <br />
@@ -29,7 +29,7 @@ export default function Hero() {
           </p>
         </div>
 
-        <div className="mt-8 max-w-[520px]">
+        <div className="mx-auto mt-8 max-w-[520px] lg:mx-0">
           <HomeAddressBar />
         </div>
       </div>

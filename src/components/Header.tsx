@@ -21,9 +21,9 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-300 bg-rc-white">
-      <div className="mx-auto max-w-[1280px] px-8 sm:px-10 lg:px-12">
-        <div className="grid h-[104px] grid-cols-[auto_1fr_auto] items-center">
-          <Link href="/" className="shrink-0">
+      <div className="mx-auto max-w-[1280px] px-5 sm:px-10 lg:px-12">
+        <div className="grid h-[104px] grid-cols-[1fr_auto_1fr] items-center lg:grid-cols-[auto_1fr_auto]">
+          <Link href="/" className="shrink-0 justify-self-center lg:justify-self-start">
             <RCLogo />
           </Link>
 

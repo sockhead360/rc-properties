@@ -236,7 +236,7 @@ export default function HomeAddressBar() {
       >
         <div className="grid gap-3">
           <div ref={addressBoxRef} className="relative">
-            <label className="flex min-h-[58px] items-center gap-3 rounded-md border border-gray-200 bg-white px-4">
+            <label className="grid min-h-[58px] grid-cols-[40px_1fr] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:flex sm:px-4">
               <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rc-soft-bg">
                 {loadingSuggestions ? (
                   <Loader2
@@ -298,7 +298,7 @@ export default function HomeAddressBar() {
           </div>
 
           <div className="grid gap-3 sm:grid-cols-2">
-            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-4">
+            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
             <Phone
               size={22}
               strokeWidth={2.2}
@@ -320,7 +320,7 @@ export default function HomeAddressBar() {
             />
             </label>
 
-            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-4">
+            <label className="flex min-h-[54px] items-center gap-3 rounded-md border border-gray-200 bg-white px-3 sm:px-4">
             <Mail
               size={22}
               strokeWidth={2.2}
@@ -359,7 +359,7 @@ export default function HomeAddressBar() {
         )}
       </form>
 
-      <div className="mt-4 flex flex-wrap items-center gap-x-5 gap-y-2 text-xs font-bold text-white sm:text-sm">
+      <div className="mt-4 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs font-bold text-white sm:text-sm lg:justify-start">
         <span className="flex items-center gap-2">
           <Lock size={15} fill="currentColor" strokeWidth={2.4} />
           100% Private

@@ -23,9 +23,9 @@ const companyLinks = [
 export default function Footer() {
   return (
     <footer className="bg-rc-navy-dark text-white">
-      <div className="mx-auto max-w-[1180px] px-8 lg:px-12">
+      <div className="mx-auto max-w-[1180px] px-5 text-center sm:px-8 md:text-left lg:px-12">
         <div className="grid gap-10 py-8 md:grid-cols-[1.55fr_0.7fr_0.75fr_1.1fr_140px] md:items-start">
-          <div>
+          <div className="flex justify-center md:block">
             <RCLogo variant="light" />
           </div>
 
@@ -72,26 +72,26 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="tel:4102609157"
-                className="flex items-center gap-3 text-[15px] text-white/90 transition-colors hover:text-rc-light-blue"
+                className="flex items-center justify-center gap-3 text-[15px] text-white/90 transition-colors hover:text-rc-light-blue md:justify-start"
               >
                 <Phone size={18} fill="currentColor" strokeWidth={2} />
                 (410) 260-9157
               </a>
               <a
                 href="mailto:info@rcproperties.com"
-                className="flex items-center gap-3 text-[15px] text-white/90 transition-colors hover:text-rc-light-blue"
+                className="flex items-center justify-center gap-3 text-[15px] text-white/90 transition-colors hover:text-rc-light-blue md:justify-start"
               >
                 <Mail size={18} fill="currentColor" strokeWidth={1.7} />
                 info@rcproperties.com
               </a>
-              <div className="flex items-center gap-3 text-[15px] text-white/90">
+              <div className="flex items-center justify-center gap-3 text-[15px] text-white/90 md:justify-start">
                 <MapPin size={18} fill="currentColor" strokeWidth={1.8} />
                 Charlotte, NC
               </div>
             </div>
           </div>
 
-          <div className="flex md:justify-end">
+          <div className="flex justify-center md:justify-end">
             <Image
               src="/badges/local-trusted-badge.svg"
               alt="Local and trusted"
@@ -102,7 +102,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 border-t border-white/12 py-5 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col items-center gap-4 border-t border-white/12 py-5 sm:flex-row sm:justify-between">
           <p className="text-[13px] text-white/90">
             © {new Date().getFullYear()} RC Properties. All rights reserved.
           </p>
