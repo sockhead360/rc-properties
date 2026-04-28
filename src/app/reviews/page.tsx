@@ -204,7 +204,7 @@ export default function ReviewsPage() {
             href="/"
             className="inline-flex items-center gap-3 rounded-md bg-rc-gold px-7 py-4 font-bold text-black transition-colors hover:bg-gold-dark"
           >
-            Get My Cash Offer
+            Get Free Quote
             <ArrowRight size={20} />
           </Link>
         </div>

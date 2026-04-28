@@ -23,7 +23,7 @@ export default function TrustBand() {
           href="/contact"
           className="mx-auto flex min-h-[66px] w-full max-w-[295px] items-center justify-center gap-8 rounded-md bg-rc-gold px-8 text-lg font-bold text-black transition-colors hover:bg-gold-dark md:mx-0"
         >
-          Get My Cash Offer
+          Get Free Quote
           <ArrowRight size={25} strokeWidth={2.2} />
         </Link>
       </div>

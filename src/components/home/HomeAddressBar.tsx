@@ -83,8 +83,7 @@ export default function HomeAddressBar() {
   const formIsValid =
     address.trim().length > 4 &&
     isValidPhone(phone) &&
-    isValidEmail(email) &&
-    termsAccepted;
+    isValidEmail(email);
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
@@ -204,7 +203,7 @@ export default function HomeAddressBar() {
 
     if (!formIsValid || submitting) {
       setSubmitError(
-        "Enter a property address, valid email, accept the required terms, and use a 10-digit mobile number if you provide one."
+        "Enter a property address, valid email, and use a 10-digit mobile number if you provide one."
       );
       return;
     }
@@ -408,7 +407,6 @@ export default function HomeAddressBar() {
                   setTermsAccepted(event.target.checked);
                   setSubmitError("");
                 }}
-                required
                 className="mt-1 h-4 w-4 rounded border-gray-300 text-rc-light-blue focus:ring-rc-light-blue"
               />
               <span>
@@ -436,7 +434,7 @@ export default function HomeAddressBar() {
             disabled={!formIsValid || submitting}
             className="flex min-h-[56px] items-center justify-center gap-4 rounded-md bg-rc-gold px-5 text-base font-bold text-black transition-colors hover:bg-gold-dark disabled:cursor-not-allowed disabled:opacity-55"
           >
-            {submitting ? "Submitting..." : "Get My Cash Offer"}
+            {submitting ? "Submitting..." : "Get Free Quote"}
             {!submitting && <ArrowRight size={22} strokeWidth={2.1} />}
           </button>
         </div>

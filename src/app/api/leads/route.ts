@@ -36,7 +36,7 @@ function isValidLead(payload: LeadPayload) {
   }
 
   if (source === "cash-offer") {
-    return address.length > 4 && payload.termsAccepted === true;
+    return address.length > 4;
   }
 
   return name.length > 1 || address.length > 4 || message.length > 1;

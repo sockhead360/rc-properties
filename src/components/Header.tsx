@@ -58,7 +58,7 @@ export default function Header() {
               href="/contact"
               className="ml-10 rounded-md bg-rc-gold px-6 py-3.5 text-[16px] font-bold text-black shadow-sm transition-colors hover:bg-gold-dark xl:ml-12"
             >
-              Get My Cash Offer
+              Get Free Quote
             </Link>
           </nav>
 
@@ -92,7 +92,7 @@ export default function Header() {
             onClick={() => setMobileOpen(false)}
             className="block rounded-md bg-rc-gold px-5 py-3 text-center text-sm font-bold text-black transition-colors hover:bg-gold-dark"
           >
-            Get My Cash Offer
+            Get Free Quote
           </Link>
         </div>
       )}
