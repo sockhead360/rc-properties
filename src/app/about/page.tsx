@@ -154,18 +154,18 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="flex justify-center">
             {team.map(({ name, role, photo }) => (
               <article
                 key={name}
-                className="rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
+                className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
               >
-                <div className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full bg-rc-navy-dark ring-4 ring-white shadow-md">
+                <div className="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full bg-rc-navy-dark ring-4 ring-white shadow-md">
                   <Image
                     src={photo}
                     alt={`${name} from RC Properties`}
-                    width={224}
-                    height={224}
+                    width={256}
+                    height={256}
                     className="h-full w-full object-cover"
                     priority
                   />

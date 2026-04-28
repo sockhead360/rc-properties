@@ -36,21 +36,19 @@ export default function PrivacyPage() {
                 1. Information We Collect
               </h2>
               <p>We may collect the following information:</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>
-                  Personal Information: Name, email address, phone number,
-                  mailing address.
-                </li>
-                <li>
-                  Mobile Information: Phone number provided for SMS
-                  communications.
-                </li>
-                <li>
-                  Usage Data: IP address, browser type, pages visited, time
-                  spent on pages.
-                </li>
-                <li>Cookies &amp; Tracking Data: See Section 6 below.</li>
-              </ul>
+              <p className="mt-3">
+                Personal Information: Name, email address, phone number, mailing
+                address.
+              </p>
+              <p>
+                Mobile Information: Phone number provided for SMS
+                communications.
+              </p>
+              <p>
+                Usage Data: IP address, browser type, pages visited, time spent
+                on pages.
+              </p>
+              <p>Cookies &amp; Tracking Data: See Section 6 below.</p>
             </div>
 
             <div>
@@ -58,13 +56,11 @@ export default function PrivacyPage() {
                 2. How We Use Your Information
               </h2>
               <p>We use your information to:</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Provide and manage our services</li>
-                <li>Communicate with you regarding your account or inquiries</li>
-                <li>Send SMS messages you have opted into</li>
-                <li>Improve our website and services</li>
-                <li>Comply with legal obligations</li>
-              </ul>
+              <p className="mt-3">Provide and manage our services</p>
+              <p>Communicate with you regarding your account or inquiries</p>
+              <p>Send SMS messages you have opted into</p>
+              <p>Improve our website and services</p>
+              <p>Comply with legal obligations</p>
             </div>
 
             <div>
@@ -77,12 +73,10 @@ export default function PrivacyPage() {
                 messages from 680 South Marketing Group, LLC DBA RC Properties,
                 including but not limited to:
               </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Customer support messages</li>
-                <li>Service updates and notifications</li>
-                <li>Appointment reminders</li>
-                <li>Promotional and marketing messages</li>
-              </ul>
+              <p className="mt-3">Customer support messages</p>
+              <p>Service updates and notifications</p>
+              <p>Appointment reminders</p>
+              <p>Promotional and marketing messages</p>
               <p className="mt-3">Message Frequency: May vary.</p>
               <p>Message &amp; Data Rates: Standard message and data rates may apply.</p>
               <p>
@@ -103,10 +97,8 @@ export default function PrivacyPage() {
                 We do not sell or rent your personal information. We may share
                 information with:
               </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Service providers assisting us in operating our business</li>
-                <li>Legal authorities if required by law</li>
-              </ul>
+              <p className="mt-3">Service providers assisting us in operating our business</p>
+              <p>Legal authorities if required by law</p>
               <p className="mt-3">
                 No mobile information will be shared with third
                 parties/affiliates for marketing/promotional purposes. All other
@@ -132,11 +124,9 @@ export default function PrivacyPage() {
                 6. Cookies &amp; Tracking Technologies
               </h2>
               <p>We use cookies and similar tracking technologies to:</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Analyze website traffic and usage</li>
-                <li>Improve user experience</li>
-                <li>Understand user behavior</li>
-              </ul>
+              <p className="mt-3">Analyze website traffic and usage</p>
+              <p>Improve user experience</p>
+              <p>Understand user behavior</p>
               <p className="mt-3">
                 You may control cookie settings through your browser
                 preferences. Disabling cookies may affect website functionality.
@@ -148,11 +138,9 @@ export default function PrivacyPage() {
                 7. Your Rights &amp; Choices
               </h2>
               <p>You have the right to:</p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Access, correct, or delete your personal information</li>
-                <li>Opt out of marketing communications</li>
-                <li>Withdraw SMS consent at any time by replying STOP</li>
-              </ul>
+              <p className="mt-3">Access, correct, or delete your personal information</p>
+              <p>Opt out of marketing communications</p>
+              <p>Withdraw SMS consent at any time by replying STOP</p>
               <p className="mt-3">
                 To exercise these rights, contact us using the information
                 below.
@@ -216,12 +204,10 @@ export default function PrivacyPage() {
                 680 South Marketing Group, LLC DBA RC Properties, offers SMS
                 messaging programs that may include:
               </p>
-              <ul className="mt-3 list-disc space-y-2 pl-5">
-                <li>Account notifications</li>
-                <li>Customer support communications</li>
-                <li>Appointment reminders</li>
-                <li>Promotional offers and updates where consent is provided</li>
-              </ul>
+              <p className="mt-3">Account notifications</p>
+              <p>Customer support communications</p>
+              <p>Appointment reminders</p>
+              <p>Promotional offers and updates (where consent is provided)</p>
             </div>
 
             <div>
