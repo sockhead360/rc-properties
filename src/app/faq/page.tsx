@@ -50,12 +50,12 @@ const faqs = [
   {
     question: "Are you a real estate agent?",
     answer:
-      "No. We are a direct cash buyer, not agents. We don't list your home on the MLS. We purchase it directly from you, which means no showings, no open houses, and no waiting for buyer financing to come through.",
+      "No. We are a direct cash buyer, not agents. We don't list your home on the MLS. We purchase it directly from you, which means no showings, no open houses, and no waiting on a buyer's process to come through.",
   },
   {
     question: "What if I'm behind on payments or facing foreclosure?",
     answer:
-      "We've helped many homeowners in difficult financial situations. If you're behind on payments or facing foreclosure, reach out as soon as possible. Time matters, and we'll do our best to move quickly.",
+      "We've helped many homeowners in difficult property situations. If you're behind on payments or facing foreclosure, reach out as soon as possible. Time matters, and we'll do our best to move quickly.",
   },
   {
     question: "Is there any obligation when I request an offer?",

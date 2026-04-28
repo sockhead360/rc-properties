@@ -34,9 +34,9 @@ const comparisonRows = [
     cash: "RC Properties covers the standard closing costs",
   },
   {
-    label: "Inspection & Financing Contingency",
-    market: "Yes, sales can fall through after inspections or financing issues",
-    cash: "No lender financing contingency and a much lower risk of the sale falling through",
+    label: "Inspection & Buyer Contingency",
+    market: "Yes, sales can fall through after inspections or buyer delays",
+    cash: "No lender contingency and a much lower chance of the sale falling through",
   },
   {
     label: "Appraisal Needed",
@@ -69,7 +69,7 @@ const sellingOptions = [
   {
     title: "Selling On The Market With An Agent",
     icon: Home,
-    text: "Selling on the market can make sense when your main goal is trying to get the highest possible retail price. The tradeoff is that you may need to prepare the home, handle showings, negotiate repairs, wait on buyer financing, and pay commissions and closing costs from your proceeds.",
+    text: "Selling on the market can make sense when your main goal is trying to get the highest possible retail price. The tradeoff is that you may need to prepare the home, handle showings, negotiate repairs, wait on the buyer's process, and pay commissions and closing costs from your proceeds.",
     detail:
       "In the Charlotte metro market, this route can take time. While the house is listed and under contract, you may still be paying the mortgage, taxes, insurance, utilities, lawn care, and maintenance.",
   },
@@ -101,7 +101,7 @@ const benefits = [
   {
     icon: CheckCircle2,
     title: "Certainty And Peace Of Mind",
-    text: "Traditional sales can fall apart because of inspections, appraisals, financing, or buyer hesitation. A direct cash sale gives you a cleaner path and a closing date you can plan around.",
+    text: "Traditional sales can fall apart because of inspections, appraisals, or buyer hesitation. A direct cash sale gives you a cleaner path and a closing date you can plan around.",
   },
 ];
 
@@ -197,7 +197,7 @@ export default function HowItWorksPage() {
                 Work the numbers and see which way helps you get there.
               </h2>
               <p className="mt-5 text-base leading-8 text-rc-muted">
-                RC Properties gives you a direct cash offer alternative to the traditional market sale. Instead of preparing the house, scheduling showings, waiting on buyer financing, and negotiating repairs, you can choose a cleaner path with fewer moving parts.
+                RC Properties gives you a direct cash offer alternative to the traditional market sale. Instead of preparing the house, scheduling showings, waiting on the buyer&apos;s process, and negotiating repairs, you can choose a cleaner path with fewer moving parts.
               </p>
               <p className="mt-4 text-base leading-8 text-rc-muted">
                 If you sell to us for cash, we may not offer full retail value,
@@ -300,9 +300,9 @@ export default function HowItWorksPage() {
           <p className="mt-5 text-sm leading-7 text-rc-muted">
             *An inspection contingency gives a buyer time to inspect the
             property and potentially back out or renegotiate if repairs are
-            needed. A financing contingency can also allow a buyer to back out
-            if they cannot obtain a loan or if the home does not appraise for
-            the value the bank needs to close.
+            needed. Other buyer contingencies can also allow a buyer to back out
+            if their purchase cannot move forward or if the home does not
+            appraise for the needed value.
           </p>
         </div>
       </section>

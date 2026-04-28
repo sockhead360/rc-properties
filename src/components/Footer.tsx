@@ -17,7 +17,7 @@ const companyLinks = [
   { label: "Reviews", href: "/reviews" },
   { label: "Our Process", href: "/how-it-works" },
   { label: "Privacy Policy", href: "/privacy" },
-  { label: "Terms of Use", href: "/privacy#terms" },
+  { label: "Terms of Services", href: "/privacy#terms" },
 ];
 
 export default function Footer() {
@@ -104,33 +104,9 @@ export default function Footer() {
 
         <div className="flex flex-col items-center gap-4 border-t border-white/12 py-5 sm:flex-row sm:justify-between">
           <p className="text-[13px] text-white/90">
-            © {new Date().getFullYear()} RC Properties. All rights reserved.
+            © {new Date().getFullYear()} 680 South Marketing Group, LLC DBA RC
+            Properties. All rights reserved.
           </p>
-          <div className="flex items-center gap-7">
-            <a
-              href="https://facebook.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Facebook"
-              className="text-white transition-colors hover:text-rc-light-blue"
-            >
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-              </svg>
-            </a>
-            <a
-              href="https://linkedin.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-              className="text-white transition-colors hover:text-rc-light-blue"
-            >
-              <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" />
-                <circle cx="4" cy="4" r="2" />
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
     </footer>

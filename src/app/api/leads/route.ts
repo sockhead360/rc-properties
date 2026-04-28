@@ -9,6 +9,9 @@ interface LeadPayload {
   message?: string;
   phone?: string;
   phoneDisplay?: string;
+  nonMarketingConsent?: boolean;
+  marketingConsent?: boolean;
+  termsAccepted?: boolean;
   source?: "cash-offer" | "contact";
 }
 
@@ -28,7 +31,11 @@ function isValidLead(payload: LeadPayload) {
   const phone = normalizePhone(payload.phone ?? "");
   const source = payload.source ?? "cash-offer";
 
-  if (!isValidEmail(email) || phone.length !== 10) {
+  if (!isValidEmail(email) || (phone.length > 0 && phone.length !== 10)) {
+    return false;
+  }
+
+  if (payload.termsAccepted !== true) {
     return false;
   }
 
@@ -59,7 +66,7 @@ export async function POST(request: Request) {
 
   if (!isValidLead(payload)) {
     return NextResponse.json(
-      { error: "Address, valid email, and 10-digit phone are required" },
+      { error: "Required fields are missing or invalid" },
       { status: 400 }
     );
   }
@@ -71,14 +78,20 @@ export async function POST(request: Request) {
   const email = payload.email!.trim();
   const name = payload.name?.trim() ?? "";
   const message = payload.message?.trim() ?? "";
-  const phone = normalizePhone(payload.phone!);
-  const phoneDisplay = payload.phoneDisplay?.trim() || phone;
+  const phone = normalizePhone(payload.phone ?? "");
+  const phoneDisplay = payload.phoneDisplay?.trim() || phone || "Not provided";
+  const nonMarketingConsent = payload.nonMarketingConsent === true;
+  const marketingConsent = payload.marketingConsent === true;
+  const termsAccepted = payload.termsAccepted === true;
   const source = payload.source ?? "cash-offer";
   const safeName = escapeHtml(name || "Not provided");
   const safeAddress = escapeHtml(address || "Not provided");
   const safeEmail = escapeHtml(email);
   const safeMessage = escapeHtml(message || "Not provided");
   const safePhoneDisplay = escapeHtml(phoneDisplay);
+  const safeNonMarketingConsent = nonMarketingConsent ? "Yes" : "No";
+  const safeMarketingConsent = marketingConsent ? "Yes" : "No";
+  const safeTermsAccepted = termsAccepted ? "Yes" : "No";
   const sourceLabel =
     source === "contact" ? "Contact page form" : "Homepage cash offer form";
 
@@ -87,6 +100,9 @@ export async function POST(request: Request) {
       address,
       email,
       phone,
+      nonMarketingConsent,
+      marketingConsent,
+      termsAccepted,
     });
 
     if (process.env.NODE_ENV === "production") {
@@ -119,9 +135,12 @@ export async function POST(request: Request) {
         `Source: ${sourceLabel}`,
         `Name: ${name || "Not provided"}`,
         `Property address: ${address || "Not provided"}`,
-        `Phone: ${phoneDisplay}`,
+        `Mobile: ${phoneDisplay}`,
         `Email: ${email}`,
         `Message: ${message || "Not provided"}`,
+        `Non-marketing SMS consent: ${safeNonMarketingConsent}`,
+        `Marketing SMS consent: ${safeMarketingConsent}`,
+        `Privacy Policy and Terms of Services accepted: ${safeTermsAccepted}`,
         "",
         "Follow up ASAP. If the lead does not answer a phone call, send a follow-up text.",
       ].join("\n"),
@@ -131,9 +150,12 @@ export async function POST(request: Request) {
           <p><strong>Source:</strong> ${escapeHtml(sourceLabel)}</p>
           <p><strong>Name:</strong> ${safeName}</p>
           <p><strong>Property address:</strong> ${safeAddress}</p>
-          <p><strong>Phone:</strong> ${safePhoneDisplay}</p>
+          <p><strong>Mobile:</strong> ${safePhoneDisplay}</p>
           <p><strong>Email:</strong> ${safeEmail}</p>
           <p><strong>Message:</strong> ${safeMessage}</p>
+          <p><strong>Non-marketing SMS consent:</strong> ${safeNonMarketingConsent}</p>
+          <p><strong>Marketing SMS consent:</strong> ${safeMarketingConsent}</p>
+          <p><strong>Privacy Policy and Terms of Services accepted:</strong> ${safeTermsAccepted}</p>
           <p>Follow up ASAP. If the lead does not answer a phone call, send a follow-up text.</p>
         </div>
       `,

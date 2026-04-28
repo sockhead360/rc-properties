@@ -9,6 +9,7 @@ import {
   useRef,
   useState,
 } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowRight, Loader2, Lock, Mail, MapPin, Phone } from "lucide-react";
 
@@ -56,13 +57,17 @@ function isValidEmail(email: string) {
 }
 
 function isValidPhone(phone: string) {
-  return normalizePhone(phone).length === 10;
+  const normalized = normalizePhone(phone);
+  return normalized.length === 0 || normalized.length === 10;
 }
 
 export default function HomeAddressBar() {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [nonMarketingConsent, setNonMarketingConsent] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
+  const [termsAccepted, setTermsAccepted] = useState(false);
   const [suggestions, setSuggestions] = useState<Suggestion[]>([]);
   const [suggestionsOpen, setSuggestionsOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(-1);
@@ -76,7 +81,10 @@ export default function HomeAddressBar() {
   const addressBoxRef = useRef<HTMLDivElement>(null);
 
   const formIsValid =
-    address.trim().length > 4 && isValidPhone(phone) && isValidEmail(email);
+    address.trim().length > 4 &&
+    isValidPhone(phone) &&
+    isValidEmail(email) &&
+    termsAccepted;
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
@@ -195,7 +203,9 @@ export default function HomeAddressBar() {
     setSubmitError("");
 
     if (!formIsValid || submitting) {
-      setSubmitError("Enter a property address, valid email, and 10-digit phone number.");
+      setSubmitError(
+        "Enter a property address, valid email, accept the required terms, and use a 10-digit mobile number if you provide one."
+      );
       return;
     }
 
@@ -210,6 +220,9 @@ export default function HomeAddressBar() {
           email: email.trim(),
           phone: normalizePhone(phone),
           phoneDisplay: phone.trim(),
+          nonMarketingConsent,
+          marketingConsent,
+          termsAccepted,
           source: "cash-offer",
         }),
       });
@@ -306,7 +319,7 @@ export default function HomeAddressBar() {
                 className="text-rc-light-blue"
               />
             </span>
-            <span className="sr-only">Phone number</span>
+            <span className="sr-only">Mobile number, optional</span>
             <input
               value={phone}
               onChange={(event) => {
@@ -316,8 +329,7 @@ export default function HomeAddressBar() {
               type="tel"
               inputMode="tel"
               autoComplete="tel"
-              placeholder="Phone number"
-              required
+              placeholder="Mobile number (optional)"
               className="w-full bg-transparent text-left text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
             />
             </label>
@@ -343,6 +355,79 @@ export default function HomeAddressBar() {
               required
               className="w-full bg-transparent text-left text-sm font-medium text-rc-text outline-none placeholder:text-rc-muted sm:text-base"
             />
+            </label>
+          </div>
+
+          <div className="space-y-3 rounded-md border border-gray-200 bg-gray-50 p-4 text-left text-xs leading-5 text-rc-text">
+            <label className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                checked={nonMarketingConsent}
+                onChange={(event) => {
+                  setNonMarketingConsent(event.target.checked);
+                  setSubmitError("");
+                }}
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-rc-light-blue focus:ring-rc-light-blue"
+              />
+              <span>
+                I agree to receive non-marketing SMS messages from 680 South
+                Marketing Group, LLC DBA RC Properties regarding responses to my
+                requests, cash offer updates, property evaluation notifications,
+                process updates, closing coordination, reminders and customer
+                support communications. Message frequency may vary. Reply
+                &ldquo;HELP&rdquo; for assistance or &ldquo;STOP&rdquo; to
+                unsubscribe. Standard message and data rates may apply.
+              </span>
+            </label>
+
+            <label className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                checked={marketingConsent}
+                onChange={(event) => {
+                  setMarketingConsent(event.target.checked);
+                  setSubmitError("");
+                }}
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-rc-light-blue focus:ring-rc-light-blue"
+              />
+              <span>
+                I agree to receive marketing SMS messages from 680 South
+                Marketing Group, LLC DBA RC Properties regarding promotional
+                offers, discounts, and related marketing communications. Message
+                frequency may vary. Reply &ldquo;HELP&rdquo; for assistance or
+                &ldquo;STOP&rdquo; to unsubscribe. Standard message and data
+                rates may apply.
+              </span>
+            </label>
+
+            <label className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                checked={termsAccepted}
+                onChange={(event) => {
+                  setTermsAccepted(event.target.checked);
+                  setSubmitError("");
+                }}
+                required
+                className="mt-1 h-4 w-4 rounded border-gray-300 text-rc-light-blue focus:ring-rc-light-blue"
+              />
+              <span>
+                By checking this box, I accept the{" "}
+                <Link
+                  href="/privacy"
+                  className="font-bold text-rc-navy hover:underline"
+                >
+                  Privacy Policy
+                </Link>{" "}
+                and{" "}
+                <Link
+                  href="/privacy#terms"
+                  className="font-bold text-rc-navy hover:underline"
+                >
+                  Terms of Services
+                </Link>
+                .
+              </span>
             </label>
           </div>
 
