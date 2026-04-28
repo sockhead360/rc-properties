@@ -154,11 +154,11 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div className="flex justify-center">
+          <div className="mx-auto w-full max-w-md">
             {team.map(({ name, role, photo }) => (
               <article
                 key={name}
-                className="w-full max-w-md rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
+                className="w-full rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
               >
                 <div className="mx-auto mb-5 h-32 w-32 overflow-hidden rounded-full bg-rc-navy-dark ring-4 ring-white shadow-md">
                   <Image
