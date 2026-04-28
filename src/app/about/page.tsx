@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -14,7 +15,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "About Us - RC Properties",
   description:
-    "Learn about Ryan, Christian, and RC Properties, a local cash home buyer serving Charlotte, NC and surrounding areas.",
+    "Learn about Christian and RC Properties, a local cash home buyer serving Charlotte, NC and surrounding areas.",
 };
 
 const values = [
@@ -37,14 +38,9 @@ const values = [
 
 const team = [
   {
-    name: "Ryan",
-    role: "Co-founder / Owner",
-    initials: "R",
-  },
-  {
     name: "Christian",
-    role: "Co-founder / Owner",
-    initials: "C",
+    role: "Owner",
+    photo: "/images/team/christian.jpg",
   },
 ];
 
@@ -110,8 +106,8 @@ export default function AboutPage() {
               Built From The Ground Up
             </p>
             <h2 className="mt-3 text-3xl font-extrabold tracking-[-0.04em] text-rc-navy-dark sm:text-4xl">
-              Ryan and Christian started RC Properties with the intention of
-              doing it the right way.
+              Christian started RC Properties with the intention of doing it the
+              right way.
             </h2>
             <p className="mt-5 text-base leading-8 text-rc-muted">
               RC Properties was built from the ground up around a simple idea:
@@ -159,13 +155,20 @@ export default function AboutPage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2">
-            {team.map(({ name, role, initials }) => (
+            {team.map(({ name, role, photo }) => (
               <article
                 key={name}
                 className="rounded-3xl border border-gray-200 bg-white p-8 text-center shadow-sm"
               >
-                <div className="mx-auto mb-5 flex h-28 w-28 items-center justify-center rounded-full bg-rc-navy-dark text-4xl font-extrabold text-rc-light-blue ring-4 ring-white shadow-md">
-                  {initials}
+                <div className="mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full bg-rc-navy-dark ring-4 ring-white shadow-md">
+                  <Image
+                    src={photo}
+                    alt={`${name} from RC Properties`}
+                    width={224}
+                    height={224}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
                 </div>
                 <h3 className="text-2xl font-extrabold text-rc-navy-dark">
                   {name}

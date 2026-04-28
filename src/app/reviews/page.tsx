@@ -35,32 +35,32 @@ const reviews = [
   {
     author: "William & Kelley",
     title: "They Gave Us Peace of Mind",
-    text: "Such a great company to do business with. Right away we felt very comfortable with the walkthroughs, offer, and closing. Ryan gave us peace of mind since we had relocated out of state. Highly recommend.",
+    text: "Such a great company to do business with. Right away we felt very comfortable with the walkthroughs, offer, and closing. Christian gave us peace of mind since we had relocated out of state. Highly recommend.",
   },
   {
     author: "Amy Kenna Davis",
     title: "Professional & Honest",
-    text: "I reached out to RC Properties to see what we could do with our home based on our circumstances. Ryan was great to talk to. He was professional, honest, and offered us great advice. Even if you are unsure what to do, I would recommend reaching out to see what advice they can offer.",
+    text: "I reached out to RC Properties to see what we could do with our home based on our circumstances. Christian was great to talk to. He was professional, honest, and offered us great advice. Even if you are unsure what to do, I would recommend reaching out to see what advice they can offer.",
   },
   {
     author: "Kayle K.",
     title: "My Go-To For Real Estate",
-    text: "Ryan and his team have been my go-to for any real estate question or issue that I have had. Ryan has always been very helpful and able to explain things in a way I could understand.",
+    text: "Christian and his team have been my go-to for any real estate question or issue that I have had. Christian has always been very helpful and able to explain things in a way I could understand.",
   },
   {
     author: "Michael R.",
     title: "Very Impressed",
-    text: "Ryan will go out of his way to help anyone. Very impressed with the community he has built. Highly recommend.",
+    text: "Christian will go out of his way to help anyone. Very impressed with the community he has built. Highly recommend.",
   },
   {
     author: "Maria L.",
     title: "Highly Recommend",
-    text: "Ryan has been an incredible person to work with. He values people and works with you to overcome challenges while sharing his unique perspective. I am very fortunate that Ryan and I crossed paths and am excited to continue that relationship in the future.",
+    text: "Christian has been an incredible person to work with. He values people and works with you to overcome challenges while sharing his unique perspective. I am very fortunate that Christian and I crossed paths and am excited to continue that relationship in the future.",
   },
   {
     author: "Michael C.",
     title: "Genuinely Helpful",
-    text: "Ryan helped motivate us to move a piece of property that we had been sitting on for years. When I reached out for help, he replied within minutes. I received a phone call full of information, but more than that, he was genuinely helpful. This felt personal. He wanted to help.",
+    text: "Christian helped motivate us to move a piece of property that we had been sitting on for years. When I reached out for help, he replied within minutes. I received a phone call full of information, but more than that, he was genuinely helpful. This felt personal. He wanted to help.",
   },
 ];
 
