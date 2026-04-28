@@ -38,8 +38,7 @@ export default function ContactForm() {
   const formIsValid =
     form.name.trim().length > 1 &&
     isValidOptionalPhone(form.phone) &&
-    isValidEmail(form.email) &&
-    form.termsAccepted;
+    isValidEmail(form.email);
 
   function handleChange(
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -59,7 +58,7 @@ export default function ContactForm() {
 
     if (!formIsValid || submitting) {
       setSubmitError(
-        "Enter your name, a valid email, accept the required terms, and use a 10-digit mobile number if you provide one."
+        "Enter your name, a valid email, and use a 10-digit mobile number if you provide one."
       );
       return;
     }
@@ -212,7 +211,6 @@ export default function ContactForm() {
             name="termsAccepted"
             checked={form.termsAccepted}
             onChange={handleCheckboxChange}
-            required
             className="mt-1 h-4 w-4 rounded border-gray-300 text-sky focus:ring-sky"
           />
           <span>

@@ -35,12 +35,8 @@ function isValidLead(payload: LeadPayload) {
     return false;
   }
 
-  if (payload.termsAccepted !== true) {
-    return false;
-  }
-
   if (source === "cash-offer") {
-    return address.length > 4;
+    return address.length > 4 && payload.termsAccepted === true;
   }
 
   return name.length > 1 || address.length > 4 || message.length > 1;
